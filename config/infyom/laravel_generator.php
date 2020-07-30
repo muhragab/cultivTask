@@ -11,7 +11,7 @@ return [
 
     'path' => [
 
-        'migration'         => database_path('migrations/v1/'),
+        'migration'         => database_path('migrations/'),
 
         'model'             => app_path('Models/V1/'),
 
@@ -162,7 +162,7 @@ return [
 
     'add_on' => [
 
-        'swagger'       => true,
+        'swagger'       => false,
 
         'tests'         => false,
 
