@@ -10,27 +10,25 @@ class GeneralController extends AppBaseController
 {
     public function heartbeats()
     {
-
         try {
             $contents = \File::get(app_path('Heartbeats/StoreHeartBeat.heartbeat'));
             $now = Carbon::now();
             return $this->sendResponse([
-                'last heatbeat' => $now->diffInSeconds(Carbon::parse($contents)),
-                'last heartbeat timet' => $contents,
+                'last_heatbeat' => $now->diffInSeconds(Carbon::parse($contents)),
+                'last_heartbeat_timet' => $contents,
             ], '');
         } catch (FileNotFoundException $exception) {
-            die("The file doesn't exist");
+            return $this->sendError('"The file doesn\'t exist"', 400);
         }
     }
 
     public function appVersion()
     {
-
         try {
             $contents = \File::get(storage_path('docs/api-docs.json'));
             return $this->sendResponse(json_decode($contents), '');
         } catch (FileNotFoundException $exception) {
-            die("The file doesn't exist");
+            return $this->sendError('"The file doesn\'t exist"', 400);
         }
     }
 }
