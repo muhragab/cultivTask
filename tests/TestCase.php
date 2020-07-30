@@ -5,15 +5,16 @@ namespace Tests;
 use Faker\Factory;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use JWTAuth;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication, DatabaseMigrations;
 
-    protected $faker;
 
-    public function set() {
+    public function set()
+    {
         parent::setUp();
-        $this->faker = Factory::create();
     }
+
 }
