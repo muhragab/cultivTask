@@ -26,7 +26,7 @@ class UpdateUserAPIRequest extends APIRequest
     {
         return [
             'username' => 'required|string',
-            'email' => 'required|email|unique:users,email,' . auth()->user()->id . '|unique:admins,email,' .  auth()->user()->id  . '|',
+            'email' => 'required|email|unique:users,email,' . $this->user . '|unique:admins,email,' .   $this->user  . '|',
             'password' => 'nullable|'
         ];
     }
